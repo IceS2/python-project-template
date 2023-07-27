@@ -1,0 +1,19 @@
+import nox
+
+@nox.session(name="static-checks")
+def static_checks(session):
+    """Runs static checks using Ruff. Refer to [tools.ruff] pyproject.toml section."""
+    session.install(".[dev]")
+    session.run("ruff", "check", "src", *session.posargs)
+
+@nox.session(name="unit-tests")
+def unit_tests(session):
+    """Runs the Unit Tests."""
+    session.install(".[dev]")
+    session.run("pytest", "tests/unit", *session.posargs)
+
+@nox.session(name="integration-tests")
+def integration_tests(session):
+    """Runs the Integration Tests."""
+    session.install(".[dev]")
+    session.run("pytest", "tests/integration", *session.posargs)

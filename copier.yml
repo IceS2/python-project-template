@@ -1,0 +1,48 @@
+project_name:
+    type: str
+    help: What is the project name?
+
+project_description:
+  type: str
+  help: Please give a short description for the project
+
+package_name:
+  type: str
+  help: What is the package name?
+  default: "{{ project_name }}"
+  validator: >-
+      {% if not (package_name | regex_search('^[a-z0-9]+(?:_[a-z0-9]+)*$')) %}
+      package_name should be snake_case with lowercase letters and digits.
+      {% endif %}
+
+python_version_requirement:
+  type: str
+  help: What is the python version requirement? Ex >= 3.10
+  default: ">= 3.10"
+
+owner:
+  type: str
+  help: Who is the owner of this project?
+
+default_dev_dependencies:
+  type: bool
+  help: Would you like to have the default dev dependencies? [nox, ruff, pytest]
+  default: yes
+
+_subdirectory: template
+
+_skip_if_exists:
+    - .gitignore
+    - README.md
+
+_message_after_copy: |
+    Your project "{{ project_name }}" has been created successfully!
+
+    Next steps:
+
+    1. Change directory to the project root:
+
+       $ cd {{ _copier_conf.dst_path }}
+
+    2. Read "README.md" and start coding.
+
