@@ -26,3 +26,33 @@ noxfile.py
 ```
 
 ## How to use
+
+First and foremost you need to have **copier** available to use. Please follow the instructions [here](https://copier.readthedocs.io/en/stable/) to install it.
+
+Then you can just use copier directly.
+
+To use the template on the current folder, just run the following command:
+
+```bash
+copier copy git@github.com:IceS2/python-project-template.git .
+```
+
+You can also define a git reference to copy:
+
+```bash
+copier copy git@github.com:IceS2/python-project-template.git . --vcs-ref main
+```
+
+### Questions asked
+
+- **project_name**: Defines the name of the project that will be used in `pyproject.toml`.
+
+- **project_description**: Short description used in `pyproject.toml`.
+
+- **package_name**: name for the python package within `src/`. Defaults to **project_name**.
+
+- **python_version_requirement**: Python version requirement used in `pyproject.toml`.
+
+- **owner**: Owner of the project, used in `pyproject.toml` as the name attribute.
+
+- **default_dev_dependencies**: If true, comes with some default dev dependencies and configurations ([nox](https://nox.thea.codes/en/stable/), [pytest](https://docs.pytest.org/en/7.4.x/), [ruff](https://beta.ruff.rs/docs/)).

@@ -34,15 +34,3 @@ _subdirectory: template
 _skip_if_exists:
     - .gitignore
     - README.md
-
-_message_after_copy: |
-    Your project "{{ project_name }}" has been created successfully!
-
-    Next steps:
-
-    1. Change directory to the project root:
-
-       $ cd {{ _copier_conf.dst_path }}
-
-    2. Read "README.md" and start coding.
-
