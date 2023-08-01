@@ -21,6 +21,7 @@ tests/
 .gitignore
 pyproject.toml
 README.md
+CHANGELOG.md
 noxfile.py
 .copier-answers.yml
 ```
